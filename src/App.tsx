@@ -1,6 +1,7 @@
-import React from 'react';
+
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Provider as JotaiProvider } from 'jotai';
+import { UserGroupIcon } from '@heroicons/react/24/outline';
 import { useUsers } from './hooks/useUsers';
 import { useTheme } from './hooks/useTheme';
 import UserCard from './components/UserCard';
@@ -12,7 +13,6 @@ import ThemeToggle from './components/ThemeToggle';
 import UserModal from './components/UserModal';
 import ErrorMessage from './components/ErrorMessage';
 
-// Create a client
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -22,10 +22,9 @@ const queryClient = new QueryClient({
   },
 });
 
-const UserListApp: React.FC = () => {
+const UserListApp = () => {
   const { users, isLoading, isError, error, totalPages, totalUsers } = useUsers();
   
-  // Initialize theme hook to set up theme management
   useTheme();
 
   const handleRetry = () => {
@@ -93,20 +92,10 @@ const UserListApp: React.FC = () => {
         {!isLoading && users.length === 0 && (
           <div className="text-center py-12">
             <div className="max-w-md mx-auto">
-              <svg
+              <UserGroupIcon
                 className="mx-auto h-12 w-12 text-gray-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
                 aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.47.881-6.08 2.33"
-                />
-              </svg>
+              />
               <h3 className="mt-2 text-sm font-medium text-gray-900 dark:text-gray-100">
                 No users found
               </h3>
@@ -124,7 +113,7 @@ const UserListApp: React.FC = () => {
   );
 };
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <JotaiProvider>

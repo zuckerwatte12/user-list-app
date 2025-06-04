@@ -12,7 +12,7 @@ export const fetchUsers = async (count: number = 100): Promise<ApiResponse> => {
     
     const data = await response.json();
     
-    // Check if API returned an error
+
     if ('error' in data) {
       throw new Error((data as ApiError).error);
     }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UserCardSkeleton: React.FC = () => {
+const UserCardSkeleton = () => {
   return (
     <div className="user-card p-6 animate-fade-in" role="status" aria-label="Loading user information">
       <div className="flex items-center space-x-4">

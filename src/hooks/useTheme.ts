@@ -5,7 +5,6 @@ import { isDarkModeAtom } from '../atoms/userAtoms';
 export const useTheme = () => {
   const [isDarkMode, setIsDarkMode] = useAtom(isDarkModeAtom);
 
-  // Initialize theme from localStorage or system preference
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -17,7 +16,6 @@ export const useTheme = () => {
     }
   }, [setIsDarkMode]);
 
-  // Apply theme to document
   useEffect(() => {
     const root = document.documentElement;
     if (isDarkMode) {
@@ -26,7 +24,6 @@ export const useTheme = () => {
       root.classList.remove('dark');
     }
     
-    // Save to localStorage
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
   }, [isDarkMode]);
 

@@ -8,7 +8,7 @@ interface PaginationProps {
   usersPerPage: number;
 }
 
-const Pagination: React.FC<PaginationProps> = ({ totalPages, totalUsers, usersPerPage }) => {
+const Pagination = ({ totalPages, totalUsers, usersPerPage }: PaginationProps) => {
   const [currentPage, setCurrentPage] = useAtom(currentPageAtom);
 
   const handlePreviousPage = () => {

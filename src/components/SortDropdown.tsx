@@ -10,7 +10,7 @@ const sortOptions: { value: SortOption; label: string }[] = [
   { value: 'email-desc', label: 'Email Z-A' },
 ];
 
-const SortDropdown: React.FC = () => {
+const SortDropdown = () => {
   const [sortOption, setSortOption] = useAtom(sortOptionAtom);
 
   const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -36,22 +36,6 @@ const SortDropdown: React.FC = () => {
           </option>
         ))}
       </select>
-      <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-        <svg
-          className="h-5 w-5 text-gray-400"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M8 9l4-4 4 4m0 6l-4 4-4-4"
-          />
-        </svg>
-      </div>
     </div>
   );
 };

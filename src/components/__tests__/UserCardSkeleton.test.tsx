@@ -89,7 +89,6 @@ describe('UserCardSkeleton Component', () => {
       const loadingText = screen.getByText('Loading user information...');
       expect(loadingText).toBeInTheDocument();
       
-      // Check that it's hidden from visual display but available to screen readers
       expect(loadingText).toHaveClass('sr-only');
     });
 

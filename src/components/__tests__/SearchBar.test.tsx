@@ -5,7 +5,6 @@ import { useAtom } from 'jotai';
 import SearchBar from '../SearchBar';
 import { searchTermAtom } from '../../atoms/userAtoms';
 
-// Test component to access atom value
 const TestWrapper = ({ children }: { children: React.ReactNode }) => {
   return <JotaiProvider>{children}</JotaiProvider>;
 };
@@ -17,7 +16,6 @@ const SearchTermDisplay = () => {
 
 describe('SearchBar Component', () => {
   beforeEach(() => {
-    // Reset state before each test
     render(
       <TestWrapper>
         <SearchBar />
@@ -69,11 +67,10 @@ describe('SearchBar Component', () => {
       const user = userEvent.setup();
       const searchInput = screen.getByPlaceholderText('Search by name or email...');
       
-      // Type something first
+
       await user.type(searchInput, 'test search');
       expect(screen.getByTestId('search-term')).toHaveTextContent('test search');
       
-      // Click clear button
       const clearButton = screen.getByLabelText('Clear search');
       await user.click(clearButton);
       
@@ -137,7 +134,7 @@ describe('SearchBar Component', () => {
       const user = userEvent.setup();
       const searchInput = screen.getByPlaceholderText('Search by name or email...');
       
-      await user.type(searchInput, 'abcdefghijklmnop', { delay: 1 });
+      await user.type(searchInput, 'abcdefghijklmnop');
       
       expect(screen.getByTestId('search-term')).toHaveTextContent('abcdefghijklmnop');
     });

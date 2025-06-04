@@ -150,7 +150,6 @@ describe('UserModal Component', () => {
       const closeButton = screen.getByLabelText('Close modal');
       const modalCloseButton = screen.getByRole('button', { name: 'Close' });
 
-      // Tab should cycle between focusable elements
       await user.tab();
       expect(modalCloseButton).toHaveFocus();
       

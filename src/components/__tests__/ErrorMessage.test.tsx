@@ -107,7 +107,7 @@ describe('ErrorMessage Component', () => {
       render(<ErrorMessage error={testError} onRetry={mockRetry} />);
       
       const retryIcon = screen.getAllByRole('img', { hidden: true });
-      expect(retryIcon).toHaveLength(2); // Error icon + retry icon
+      expect(retryIcon).toHaveLength(2);
     });
   });
 }); 

@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { useAtom } from 'jotai';
+import { XMarkIcon } from '@heroicons/react/24/outline';
 import { selectedUserAtom, isModalOpenAtom } from '../atoms/userAtoms';
 import { getUserDisplayName, formatDate } from '../api/userApi';
 
-const UserModal: React.FC = () => {
+const UserModal = () => {
   const [selectedUser, setSelectedUser] = useAtom(selectedUserAtom);
   const [isModalOpen, setIsModalOpen] = useAtom(isModalOpenAtom);
   const modalRef = useRef<HTMLDivElement>(null);
@@ -26,7 +27,6 @@ const UserModal: React.FC = () => {
     }
   };
 
-  // Focus trap functionality
   useEffect(() => {
     if (isModalOpen && modalRef.current) {
       const focusableElements = modalRef.current.querySelectorAll(
@@ -60,7 +60,6 @@ const UserModal: React.FC = () => {
     }
   }, [isModalOpen]);
 
-  // Prevent body scroll when modal is open
   useEffect(() => {
     if (isModalOpen) {
       document.body.style.overflow = 'hidden';
@@ -106,9 +105,7 @@ const UserModal: React.FC = () => {
                        focus:outline-none focus:ring-2 focus:ring-blue-500"
             aria-label="Close modal"
           >
-            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
+            <XMarkIcon className="h-6 w-6" />
           </button>
         </div>
 
