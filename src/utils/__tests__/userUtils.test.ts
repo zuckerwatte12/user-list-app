@@ -38,8 +38,9 @@ describe('User Utility Functions', () => {
 
     test('filters users by first name (case insensitive)', () => {
       const result = filterUsers(mockUsers, 'john');
-      expect(result).toHaveLength(1);
-      expect(result[0].name.first).toBe('John');
+      expect(result).toHaveLength(2);
+      expect(result.some(user => user.name.first === 'John')).toBe(true);
+      expect(result.some(user => user.name.last === 'Johnson')).toBe(true);
     });
 
     test('filters users by last name (case insensitive)', () => {
