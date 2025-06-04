@@ -1,5 +1,3 @@
-import React from 'react';
-
 const UserCardSkeleton = () => {
   return (
     <div className="user-card p-6 animate-fade-in" role="status" aria-label="Loading user information">
